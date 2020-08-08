@@ -6,7 +6,7 @@ before_install:
   - cd .travis-files/docker
   - docker build --tag splunk .
   - docker run -d --name splunk splunk
-  - docker exec -it splunk /opt/splunk/bin/splunk --accept-license
+  - docker exec -it splunk /opt/splunk/bin/splunk start --accept-license
   - docker ps -a
 
 script:
