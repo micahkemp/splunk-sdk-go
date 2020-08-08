@@ -10,7 +10,7 @@ RUN apt-get install -y --no-install-recommends curl ca-certificates
 RUN useradd -d $SPLUNK_HOME -m $SPLUNK_OS_USER
 
 USER $SPLUNK_OS_USER
-RUN curl $SPLUNK_TGZ_URL | tar xz -C $SPLUNK_HOME/..
+RUN curl $SPLUNK_TGZ_URL | tar xzv -C $SPLUNK_HOME/..
 COPY user-seed.conf $SPLUNK_HOME/etc/system/local
 RUN echo OPTIMISTIC_ABOUT_FILE_LOCKING=1 >> $SPLUNK_HOME/etc/splunk-launch.conf
 WORKDIR $SPLUNK_HOME
